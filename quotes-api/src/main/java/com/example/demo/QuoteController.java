@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/")
+@CrossOrigin(origins = "http://localhost:8081")
 public class QuoteController {
     private final QuoteService quoteService;
 
@@ -12,7 +13,7 @@ public class QuoteController {
         this.quoteService = quoteService;
     }
 
-    @GetMapping
+    @GetMapping ("/quote")
     public ResponseEntity<Quote> getQuote() {
         return ResponseEntity.ok(quoteService.getRandomQuote());
     }
